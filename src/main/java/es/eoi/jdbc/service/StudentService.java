@@ -2,15 +2,21 @@ package es.eoi.jdbc.service;
 
 import es.eoi.jdbc.entity.Student;
 import es.eoi.jdbc.repository.StudentRepository;
+import es.eoi.jdbc.repository.StudentRepositoryImpl;
 
 import java.util.List;
 
 public class StudentService {
 
-    private StudentRepository repository;
+    private final StudentRepository studentRepository;
 
-    public StudentService(StudentRepository repository) {
-        this.repository = repository;
+    public StudentService() {
+
+        studentRepository = new StudentRepositoryImpl();
+    }
+
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
     }
 
     public Student findById(String id);
